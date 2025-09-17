@@ -2,33 +2,35 @@
 layout: home
 
 hero:
-  name: VitePress Demo
-  text: 由 Vite & Vue 驱动
-  tagline: 极速开发 · 磨砂导航 · 彩虹标题
+  name: Horizon
+  text: A Simplified Compliance Chatbot
+  tagline: scan contracts/invoices · flag high-risk transactions
   actions:
     - theme: brand
-      text: 快速开始
-      link: /guide/
+      text: Quickstart
+      link: https://zhouxule.github.io/uni-app-h5-test/#/
     - theme: alt
-      text: GitHub
-      link: https://github.com
+      text: User Guide
+      link: /guide/
 
 features:
-  - icon: ⚡
-    title: 极速体验
-    details: 基于 Vite，秒级热更新，开发如飞。
-  - icon: 🎨
-    title: 高度自定义
-    details: 直接在 Markdown 中使用 Vue 组件。
-  - icon: 🪄
-    title: 现代设计
-    details: 磨砂导航，彩虹标题，现代渐变风格。
+  - icon: 🤖
+    title: Chatbot Prototype
+    details: Chatbot Prototype
+  - icon: 🔒
+    title: Risk Assessment Algorithm
+    details: Risk Assessment Algorithm
+  - icon: 🧾
+    title: Testing and Validation Report
+    details: Testing and Validation Report
+  - icon: 🔎
+    title: Feedback Mechanism
+    details: Feedback Mechanism
+  - icon: 📈
+    title: Integration Plan
+    details: Integration Plan
 ---
 
-<!-- Hero 区域下方的箭头 -->
-<div class="scroll-down">
-  <span></span>
-</div>
 
 <style>
 /* 顶部导航栏磨砂玻璃效果 */

@@ -19,7 +19,7 @@ git commit -m "deploy"
 REM 4. 推送到 gh-pages 分支
 echo 推送到 gh-pages 分支...
 git branch -M gh-pages
-git remote add origin https://github.com/zhouxule/vitepress-portal-test.git
+echo git remote add origin https://github.com/zhouxule/vitepress-portal-test.git
 git push -f origin gh-pages
 
 REM 5. 返回原目录
