@@ -1,5 +1,5 @@
 export default {
-  title: "Horizon",
+  title: "Finanalytix",
   description: "A Simplified Compliance Chatbot",
   base: "/vitepress-portal-test/",
   themeConfig: {
@@ -8,7 +8,7 @@ export default {
       { text: "Guide", link: "/guide/" },
       { text: "Price", link: "/price/" },
       { text: "About", link: "/about/" },
-      { text: "GitHub", link: "https://github.com" }
+      { text: "GitHub", link: "https://github.com/zhouxule/vitepress-portal-test" }
     ],
 
     localeLinks: {
@@ -20,12 +20,27 @@ export default {
     },
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/" }
+      { icon: "github", link: "https://github.com/zhouxule/vitepress-portal-test" }
     ],
 
     footer: {
-      message: "© 2025 Horizon. All rights reserved.",
+      message: "© 2025 Finanalytix. All rights reserved.",
       copyright: ""
+    },
+
+    sidebar: {
+      '/guide/': [
+        {
+          text: 'Guide',
+          collapsible: true,
+          items: [
+            { text: 'Introduction', link: '/guide/' },
+            { text: '安装', link: '/guide/install' },
+            { text: '配置', link: '/guide/config' },
+            { text: '部署', link: '/guide/deploy' }
+          ]
+        }
+      ]
     }
   }
 }

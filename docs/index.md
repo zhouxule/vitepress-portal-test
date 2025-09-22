@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: Horizon
+  name: Finanalytix
   text: A Simplified Compliance Chatbot
   tagline: scan contracts/invoices · flag high-risk transactions
   actions:
@@ -47,7 +47,7 @@ features:
   background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ade80, #facc15, #f87171);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 /* Hero 背景渐变 */
