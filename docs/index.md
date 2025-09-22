@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Quickstart
-      link: https://zhouxule.github.io/uni-app-h5-test/#/
+      link: http://group01.mozelle.top
     - theme: alt
       text: User Guide
       link: /guide/

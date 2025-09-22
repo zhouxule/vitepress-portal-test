@@ -5,7 +5,7 @@ echo =========================================
 
 REM 1. 构建 VitePress 项目
 echo 正在编译...
-call npm run docs:build
+call npm run build
 
 REM 2. 进入输出目录
 cd docs\.vitepress\dist
