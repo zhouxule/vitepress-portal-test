@@ -1,5 +1,5 @@
 export default {
-  title: "Finanalytix",
+  title: "Finalytix",
   description: "A Simplified Compliance Chatbot",
   base: "/vitepress-portal-test/",
   themeConfig: {
@@ -24,7 +24,7 @@ export default {
     ],
 
     footer: {
-      message: "© 2025 Finanalytix. All rights reserved.",
+      message: "© 2025 Finalytix. All rights reserved.",
       copyright: ""
     },
 

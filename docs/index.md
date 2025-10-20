@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: Finanalytix
+  name: Finalytix
   text: A Simplified Compliance Chatbot
   tagline: scan contracts/invoices · flag high-risk transactions
   actions:
