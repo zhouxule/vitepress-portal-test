@@ -8,7 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Quickstart
-      link: http://group01.mozelle.top
+      link: http://ai.mozelle.top
+    - theme: alt
+      text: Heatmap
+      link: /heatmap/
     - theme: alt
       text: User Guide
       link: /guide/
@@ -52,7 +55,8 @@ features:
 
 /* Hero 背景渐变 */
 .VPHero {
-  background: linear-gradient(135deg, #eef2ff, #f0f9ff, #fff7ed);
+  /* 使用纯白背景以便底部的 backdrop-filter (磨砂) 能更明显 */
+  background: #ffffff;
   position: relative; /* 方便定位箭头 */
   padding-bottom: 80px; /* 给箭头留空间 */
 }
@@ -64,12 +68,14 @@ features:
 .VPFeatures .VPFeature {
   border-radius: 16px;
   backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  /* 取消阴影，内部背景改为浅灰（默认白改为浅灰以减少强对比） */
+  background: #f3f4f6; /* 浅灰 */
+  box-shadow: none;
 }
 .dark .VPFeatures .VPFeature {
+  /* 暗色主题保留较深背景，但去掉强阴影 */
   background: rgba(30, 41, 59, 0.6);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  box-shadow: none;
 }
 
 /* 下滑箭头样式 */
@@ -98,5 +104,66 @@ features:
   0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
   40% { transform: translateY(10px) rotate(45deg); }
   60% { transform: translateY(5px) rotate(45deg); }
+}
+
+/* 大图标（SVG）显示在右侧：使用 VPHero 的伪元素，这样不会破坏布局。
+   - 将 SVG 放到 public/images/logo.svg（或改成你的路径）
+   - 在小屏幕隐藏以避免遮挡 */
+.VPHero::after {
+  content: "";
+  position: absolute;
+  right: 160px;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 320px;
+  height: 320px;
+  background-image: url('/images/logo.svg');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
+  opacity: 0.95;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.12));
+  z-index: 20; /* 确保 logo 在更上层 */
+}
+
+/* 暗色主题下保持对比 */
+.dark .VPHero::after {
+  opacity: 0.9;
+}
+
+/* 底部磨砂半透明效果：覆盖在 Hero 底部 */
+.VPHero::before {
+  /* 局部的模糊光斑（仅在 logo 下方），避免覆盖标题区域。
+     使用多个 radial-gradient 叠加并用 filter: blur() 产生柔和的 glow 效果。
+     位置以与 ::after logo 近似对齐（right/top 可根据需要微调）。 */
+  content: "";
+  position: absolute;
+  right: 0px; /* 与 logo ::after 相同的 right 值，便于对齐 */
+  top: 62%;
+  transform: translateY(-50%);
+  width: 520px;
+  height: 420px;
+  background:
+    radial-gradient( circle at 30% 35%, rgba(59,130,246,0.40) 0%, rgba(99,102,241,0.28) 22%, rgba(139,92,246,0.18) 40%, transparent 70%),
+    radial-gradient( circle at 70% 70%, rgba(168,85,247,0.22) 0%, rgba(236,72,153,0.06) 40%, transparent 70% );
+  filter: blur(30px);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 9; /* 在 logo (::after, z-index:20) 之下 */
+}
+.dark .VPHero::before {
+  /* 暗色主题使用更柔和的冷色 glow */
+  background:
+    radial-gradient( circle at 30% 35%, rgba(59,130,246,0.28) 0%, rgba(99,102,241,0.18) 22%, rgba(139,92,246,0.12) 40%, transparent 70%),
+    radial-gradient( circle at 70% 70%, rgba(124,58,237,0.14) 0%, rgba(236,72,153,0.04) 40%, transparent 70% );
+  filter: blur(28px);
+  opacity: 0.85;
+}
+
+/* 响应式：在窄屏隐藏右侧大图标和缩小底部高度 */
+@media (max-width: 900px) {
+  .VPHero::after { display: none; }
+  .VPHero::before { height: 80px; }
 }
 </style>

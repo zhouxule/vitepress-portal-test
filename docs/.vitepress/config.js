@@ -5,6 +5,7 @@ export default {
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
+      { text: "Heatmap", link: "/heatmap/" },
       { text: "Guide", link: "/guide/" },
       { text: "Price", link: "/price/" },
       { text: "About", link: "/about/" },
