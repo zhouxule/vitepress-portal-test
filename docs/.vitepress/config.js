@@ -1,7 +1,7 @@
 export default {
   title: "Finalytix",
   description: "A Simplified Compliance Chatbot",
-  base: "/vitepress-portal-test/",
+  base: "/",
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
