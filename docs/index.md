@@ -3,12 +3,12 @@ layout: home
 
 hero:
   name: Finalytix
-  text: A Simplified Compliance Chatbot
-  tagline: scan contracts/invoices · flag high-risk transactions
+  text: <span id="typed" class="typing-area"><span id="typed-inner"></span><span id="typed-cursor" class="cursor"></span></span>
+  tagline: Combining AI analysis, market data, and customized strategies.
   actions:
     - theme: brand
       text: Quickstart
-      link: http://ai.mozelle.top
+      link: http://ai.mozelle.top/#/login
     - theme: alt
       text: Heatmap
       link: /heatmap/
@@ -34,8 +34,89 @@ features:
     details: Integration Plan
 ---
 
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const textSpan = document.getElementById('typed-inner')
+  const fullText = "Your Intelligent Financial Assistant"
+
+  const typeSpeed = 70
+  const deleteSpeed = 40
+  const pauseAfterType = 2000
+  const pauseAfterDelete = 800
+
+  let i = 0
+  let forward = true
+
+  const doType = () => {
+    if (forward) {
+      if (i <= fullText.length) {
+        textSpan.textContent = fullText.slice(0, i)
+        i++
+        setTimeout(doType, typeSpeed)
+      } else {
+        forward = false
+        setTimeout(doType, pauseAfterType)
+      }
+    } else {
+      if (i >= 0) {
+        textSpan.textContent = fullText.slice(0, i)
+        i--
+        setTimeout(doType, deleteSpeed)
+      } else {
+        forward = true
+        i = 0
+        setTimeout(doType, pauseAfterDelete)
+      }
+    }
+  }
+
+  setTimeout(doType, 200)
+})
+</script>
+
 
 <style>
+:root {
+  --line-height: 1.2em; /* 与 VitePress 默认 hero 内容匹配 */
+}
+
+.typing-area {
+  display: inline-block;
+  line-height: var(--line-height);
+
+  /* 固定两行高度 */
+  height: calc(2 * var(--line-height));
+  max-height: calc(2 * var(--line-height));
+  overflow: hidden; /* 阻止第三行出现 */
+
+  white-space: normal; /* 允许自动换行 */
+  position: relative;
+}
+
+/* 内层真实文字容器 */
+#typed-inner {
+  white-space: normal;      /* 自动换行 */
+  word-break: break-word;   /* 单词太长就断开 */
+}
+
+/* 下划线光标 */
+.cursor {
+  display: inline-block;
+  width: 0.4em;
+  height: 0.12em;
+  background: currentColor;
+  vertical-align: baseline;
+  animation: blink 900ms steps(1) infinite;
+  position: relative;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
 /* 顶部导航栏磨砂玻璃效果 */
 .VPNavBar {
   backdrop-filter: blur(12px);
